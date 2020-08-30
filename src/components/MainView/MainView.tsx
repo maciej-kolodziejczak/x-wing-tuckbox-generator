@@ -1,14 +1,16 @@
 import React, { FC } from "react";
 import { Route, Switch, Redirect } from "react-router";
 
-import { PilotCards } from "../../Pages/PilotCards/PilotCards";
-import { UpgradeCards } from "../../Pages/UpgradeCards/UpgradeCards";
+import { routes } from "../../routes";
 
 export const MainView: FC<{}> = () => {
   return (
     <Switch>
-      <Route path="/pilot-cards" component={PilotCards} exact />
-      <Route path="/upgrade-cards" component={UpgradeCards} exact />
+      {routes.map(({ path, name, component }) => (
+        <Route path={path} component={component}>
+          {name}
+        </Route>
+      ))}
       <Redirect to="/pilot-cards" />
     </Switch>
   );
