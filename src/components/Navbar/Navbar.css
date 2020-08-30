@@ -1,0 +1,22 @@
+.navbar {
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar__list .list__item {
+  color: #ccc;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar__list .list__item.active {
+  color: #fff;
+}
+
+.navbar__list .list__item + .list__item {
+  margin-left: 1.5rem;
+}

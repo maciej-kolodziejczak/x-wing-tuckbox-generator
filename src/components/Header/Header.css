@@ -1,0 +1,28 @@
+.header {
+  color: #fff;
+  padding-top: 1.5rem;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  width: 150px;
+}
+
+.header__nav {
+}
+
+.logo__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.logo__tagline {
+  margin-top: 0.5rem;
+  text-align: center;
+}
