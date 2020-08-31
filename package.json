@@ -7,7 +7,6 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.54",
     "@types/react": "^16.9.48",
     "@types/react-dom": "^16.9.8",
     "react": "^16.13.1",
@@ -21,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "data": "cd xwing-data2 && npm run ffgscrape && cd .. && node src/scripts/generate.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,8 +39,10 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^12.12.54",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "ts-node": "^9.0.0"
   }
 }
