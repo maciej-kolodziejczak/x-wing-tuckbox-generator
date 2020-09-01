@@ -48,3 +48,7 @@
 .ruler-t {
   margin-top: 3rem;
 }
+
+.ruler-d {
+  opacity: 0.5;
+}

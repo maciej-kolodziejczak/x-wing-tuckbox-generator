@@ -6,10 +6,8 @@ import { routes } from "../../routes";
 export const MainView: FC<{}> = () => {
   return (
     <Switch>
-      {routes.map(({ path, name, component }) => (
-        <Route path={path} component={component}>
-          {name}
-        </Route>
+      {routes.map(({ path, component }) => (
+        <Route path={path} component={component} key={path}></Route>
       ))}
       <Redirect to="/pilot-cards" />
     </Switch>

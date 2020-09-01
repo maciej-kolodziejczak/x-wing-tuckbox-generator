@@ -4,6 +4,7 @@ import React, { FC } from "react";
 interface RulerProps {
   orientation: "horizontal" | "vertical";
   spacing: "both" | "top" | "bottom" | "none";
+  dimmed?: boolean;
 }
 
 const classNameMap = {
@@ -15,13 +16,14 @@ const classNameMap = {
   none: "",
 };
 
-export const Ruler: FC<RulerProps> = ({ orientation, spacing }) => {
+export const Ruler: FC<RulerProps> = ({ orientation, spacing, dimmed }) => {
   return (
     <div
       className={`
         ruler
         ${classNameMap[orientation]}
         ${classNameMap[spacing]}
+        ${dimmed ? "ruler-d" : ""}
     `}
     ></div>
   );

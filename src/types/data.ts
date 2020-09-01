@@ -23,6 +23,8 @@ export interface Pilot {
   limited: number;
   image: string;
   artwork: string;
+  faction: string;
+  ship: string;
 }
 
 export type UpgradeCardsData = UpgradeCardType[];

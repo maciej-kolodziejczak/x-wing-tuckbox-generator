@@ -9,7 +9,7 @@ export const Navbar: FC<{}> = () => {
     <nav className="navbar">
       <ul className="navbar__list">
         {routes.map(({ name, path }) => (
-          <NavLink className="list__item" to={path}>
+          <NavLink className="list__item" to={path} key={path}>
             {name}
           </NavLink>
         ))}
