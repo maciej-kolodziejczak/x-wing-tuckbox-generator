@@ -32,6 +32,7 @@ export type UpgradeCardsData = UpgradeCardType[];
 export interface UpgradeCardType {
   xws: string;
   name: string;
+  icon: string;
   cards: UpgradeCard[];
 }
 

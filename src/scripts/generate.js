@@ -1,7 +1,13 @@
 const fs = require("fs");
 const path = require("path");
 
-const basePath = path.resolve(__dirname, "..", "..", "xwing-data2", "data");
+const basePath = path.resolve(
+  __dirname,
+  "..",
+  "submodules",
+  "xwing-data2",
+  "data"
+);
 const directories = ["factions", "pilots", "upgrades"];
 const outDir = path.resolve(__dirname, "..", "data");
 
@@ -49,9 +55,9 @@ function prepareShips() {
     return {
       xws: `ship:${ship.xws}`,
       name: ship.name,
-      icon: ship.icon,
       size: ship.size,
       faction,
+      icon: `xwing-miniatures-ship-${ship.xws}`,
       pilots: ship.pilots.map((pilot) => ({
         xws: `pilot:${pilot.xws}`,
         name: pilot.name,
@@ -116,6 +122,7 @@ function prepareUpgradeCardsData() {
       cards: contents.map((card) => ({
         xws: `upgrade:${card.xws}`,
         name: card.name,
+        icon: `xwing-miniatures-font-${card.xws}`,
       })),
     };
   });

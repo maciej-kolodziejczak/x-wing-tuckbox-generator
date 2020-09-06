@@ -1,3 +1,6 @@
-[submodule "xwing-data2"]
-	path = xwing-data2
+[submodule "src/submodules/xwing-data2"]
+	path = src/submodules/xwing-data2
 	url = git@github.com:guidokessels/xwing-data2.git
+[submodule "src/submodules/xwing-miniatures-font"]
+	path = src/submodules/xwing-miniatures-font
+	url = git@github.com:geordanr/xwing-miniatures-font.git
