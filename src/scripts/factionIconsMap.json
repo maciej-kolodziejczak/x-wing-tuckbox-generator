@@ -1,0 +1,37 @@
+{
+  "rebelalliance": {
+    "icon": "rebel",
+    "char": "!",
+    "color": "red"
+  },
+  "galacticempire": {
+    "icon": "empire",
+    "char": "@",
+    "color": "blue"
+  },
+  "scumandvillainy": {
+    "icon": "scum",
+    "char": "#",
+    "color": "green"
+  },
+  "resistance": {
+    "icon": "rebel",
+    "char": "!",
+    "color": "orange"
+  },
+  "firstorder": {
+    "icon": "firstorder",
+    "char": "+",
+    "color": "red"
+  },
+  "galacticrepublic": {
+    "icon": "republic",
+    "char": "/",
+    "color": "black"
+  },
+  "separatistalliance": {
+    "icon": "separatists",
+    "char": ".",
+    "color": "blue"
+  }
+}

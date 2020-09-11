@@ -1,5 +1,5 @@
 import "normalize.css/normalize.css";
-import "../xwing-miniatures-font/dist/xwing-miniatures.css";
+import "./submodules/xwing-miniatures-font/dist/xwing-miniatures.css";
 import "./index.css";
 
 import React from "react";

@@ -1,0 +1,352 @@
+{
+  "aggressorassaultfighter": {
+    "icon": "aggressorassaultfighter",
+    "char": "i",
+    "color": ""
+  },
+  "alphaclassstarwing": {
+    "icon": "alphaclassstarwing",
+    "char": "&",
+    "color": ""
+  },
+  "arc170starfighter": {
+    "icon": "arc170starfighter",
+    "char": "c",
+    "color": ""
+  },
+  "asf01bwing": {
+    "icon": "asf01bwing",
+    "char": "b",
+    "color": ""
+  },
+  "attackshuttle": {
+    "icon": "attackshuttle",
+    "char": "g",
+    "color": ""
+  },
+  "auzituckgunship": {
+    "icon": "btls8auzituckgunshipkwing",
+    "char": "@",
+    "color": ""
+  },
+  "belbullab22starfighter": {
+    "icon": "belbullab22starfighter",
+    "char": "[",
+    "color": ""
+  },
+  "btla4ywing": {
+    "icon": "btla4ywing",
+    "char": "y",
+    "color": ""
+  },
+  "btlbywing": {
+    "icon": "btlbywing",
+    "char": ":",
+    "color": ""
+  },
+  "btls8kwing": {
+    "icon": "btls8kwing",
+    "char": "k",
+    "color": ""
+  },
+  "cr90corvette": {
+    "icon": "cr90corvette",
+    "char": "2",
+    "color": ""
+  },
+  "croccruiser": {
+    "icon": "croccruiser",
+    "char": "5",
+    "color": ""
+  },
+  "customizedyt1300lightfreighter": {
+    "icon": "customizedyt1300lightfreighter",
+    "char": "W",
+    "color": ""
+  },
+  "delta7aethersprite": {
+    "icon": "delta7aethersprite",
+    "char": "\\",
+    "color": ""
+  },
+  "escapecraft": {
+    "icon": "escapecraft",
+    "char": "",
+    "color": "X"
+  },
+  "ewing": {
+    "icon": "ewing",
+    "char": "e",
+    "color": ""
+  },
+  "fangfighter": {
+    "icon": "fangfighter",
+    "char": "M",
+    "color": ""
+  },
+  "firesprayclasspatrolcraft": {
+    "icon": "firesprayclasspatrolcraft",
+    "char": "f",
+    "color": ""
+  },
+  "g1astarfighter": {
+    "icon": "g1astarfighter",
+    "char": "n",
+    "color": ""
+  },
+  "gozanticlasscruiser": {
+    "icon": "gozanticlasscruiser",
+    "char": "4",
+    "color": ""
+  },
+  "gr75mediumtransport": {
+    "icon": "gr75mediumtransport",
+    "char": "1",
+    "color": ""
+  },
+  "hwk290lightfreighter": {
+    "icon": "hwk290lightfreighter",
+    "char": "h",
+    "color": ""
+  },
+  "hyenaclassdroidbomber": {
+    "icon": "hyenaclassdroidbomber",
+    "char": "=",
+    "color": ""
+  },
+  "jumpmaster5000": {
+    "icon": "jumpmaster5000",
+    "char": "p",
+    "color": ""
+  },
+  "kihraxzfighter": {
+    "icon": "kihraxzfighter",
+    "char": "r",
+    "color": ""
+  },
+  "lambdaclasst4ashuttle": {
+    "icon": "lambdaclasst4ashuttle",
+    "char": "l",
+    "color": ""
+  },
+  "lancerclasspursuitcraft": {
+    "icon": "lancerclasspursuitcraft",
+    "char": "L",
+    "color": ""
+  },
+  "m12lkimogilafighter": {
+    "icon": "m12lkimogilafighter",
+    "char": "K",
+    "color": ""
+  },
+  "m3ainterceptor": {
+    "icon": "m3ainterceptor",
+    "char": "s",
+    "color": ""
+  },
+  "mg100starfortress": {
+    "icon": "mg100starfortress",
+    "char": "Z",
+    "color": ""
+  },
+  "modifiedtielnfighter": {
+    "icon": "modifiedtielnfighter",
+    "char": "C",
+    "color": ""
+  },
+  "modifiedyt1300lightfreighter": {
+    "icon": "modifiedyt1300lightfreighter",
+    "char": "m",
+    "color": ""
+  },
+  "nabooroyaln1starfighter": {
+    "icon": "nabooroyaln1starfighter",
+    "char": "<",
+    "color": ""
+  },
+  "nantexclassstarfighter": {
+    "icon": "nantexclassstarfighter",
+    "char": ";",
+    "color": ""
+  },
+  "quadrijettransferspacetug": {
+    "icon": "quadrijettransferspacetug",
+    "char": "q",
+    "color": ""
+  },
+  "raiderclasscorvette": {
+    "icon": "raiderclasscorvette",
+    "char": "3",
+    "color": ""
+  },
+  "resistancetransport": {
+    "icon": "resistancetransport",
+    "char": ">",
+    "color": ""
+  },
+  "resistancetransportpod": {
+    "icon": "resistancetransportpod",
+    "char": "?",
+    "color": ""
+  },
+  "rz1awing": {
+    "icon": "rz1awing",
+    "char": "a",
+    "color": ""
+  },
+  "rz2awing": {
+    "icon": "rz2awing",
+    "char": "E",
+    "color": ""
+  },
+  "scurrgh6bomber": {
+    "icon": "scurrgh6bomber",
+    "char": "H",
+    "color": ""
+  },
+  "scavengedyt1300": {
+    "icon": "scavengedyt1300",
+    "char": "Y",
+    "color": ""
+  },
+  "sheathipedeclassshuttle": {
+    "icon": "sheathipedeclassshuttle",
+    "char": "%",
+    "color": ""
+  },
+  "sithinfiltrator": {
+    "icon": "sithinfiltrator",
+    "char": "]",
+    "color": ""
+  },
+  "starviperclassattackplatform": {
+    "icon": "starviperclassattackplatform",
+    "char": "v",
+    "color": ""
+  },
+  "t65xwing": {
+    "icon": "t65xwing",
+    "char": "x",
+    "color": ""
+  },
+  "t70xwing": {
+    "icon": "t70xwing",
+    "char": "w",
+    "color": ""
+  },
+  "tieadvancedv1": {
+    "icon": "tieadvancedv1",
+    "char": "R",
+    "color": ""
+  },
+  "tieadvancedx1": {
+    "icon": "tieadvancedx1",
+    "char": "A",
+    "color": ""
+  },
+  "tieagaggressor": {
+    "icon": "tieagaggressor",
+    "char": "`",
+    "color": ""
+  },
+  "tiecapunisher": {
+    "icon": "tiecapunisher",
+    "char": "N",
+    "color": ""
+  },
+  "tieddefender": {
+    "icon": "tieddefender",
+    "char": "D",
+    "color": ""
+  },
+  "tiefofighter": {
+    "icon": "tiefofighter",
+    "char": "O",
+    "color": ""
+  },
+  "tieinterceptor": {
+    "icon": "tieinterceptor",
+    "char": "I",
+    "color": ""
+  },
+  "tielnfighter": {
+    "icon": "tielnfighter",
+    "char": "F",
+    "color": ""
+  },
+  "tiephphantom": {
+    "icon": "tiephphantom",
+    "char": "P",
+    "color": ""
+  },
+  "tiereaper": {
+    "icon": "tiereaper",
+    "char": "V",
+    "color": ""
+  },
+  "tiesabomber": {
+    "icon": "tiesabomber",
+    "char": "B",
+    "color": ""
+  },
+  "tiesffighter": {
+    "icon": "tiesffighter",
+    "char": "S",
+    "color": ""
+  },
+  "tievnsilencer": {
+    "icon": "tievnsilencer",
+    "char": "$",
+    "color": ""
+  },
+  "tieskstriker": {
+    "icon": "tieskstriker",
+    "char": "T",
+    "color": ""
+  },
+  "upsilonclasscommandshuttle": {
+    "icon": "upsilonclasscommandshuttle",
+    "char": "U",
+    "color": ""
+  },
+  "ut60duwing": {
+    "icon": "ut60duwing",
+    "char": "u",
+    "color": ""
+  },
+  "v19torrentstarfighter": {
+    "icon": "v19torrentstarfighter",
+    "char": "^",
+    "color": ""
+  },
+  "vcx100lightfreighter": {
+    "icon": "vcx100lightfreighter",
+    "char": "G",
+    "color": ""
+  },
+  "vt49decimator": {
+    "icon": "vt49decimator",
+    "char": "d",
+    "color": ""
+  },
+  "vultureclassdroidfighter": {
+    "icon": "vultureclassdroidfighter",
+    "char": "_",
+    "color": ""
+  },
+  "yt2400lightfreighter": {
+    "icon": "yt2400lightfreighter",
+    "char": "o",
+    "color": ""
+  },
+  "yv666lightfreighter": {
+    "icon": "yv666lightfreighter",
+    "char": "t",
+    "color": ""
+  },
+  "z95af4headhunter": {
+    "icon": "z95af4headhunter",
+    "char": "z",
+    "color": ""
+  }
+}

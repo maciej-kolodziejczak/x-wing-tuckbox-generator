@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
+const shipsIconsMap = require("./shipIconsMap.json");
+const factionIconsMap = require("./factionIconsMap.json");
+const upgradesIconsMap = require("./upgradesIconsMap.json");
+
 const basePath = path.resolve(
   __dirname,
   "..",
@@ -57,7 +61,11 @@ function prepareShips() {
       name: ship.name,
       size: ship.size,
       faction,
-      icon: `xwing-miniatures-ship-${ship.xws}`,
+      icon: shipsIconsMap[ship.xws] || {
+        icon: ship.icon,
+        char: null,
+        color: "",
+      },
       pilots: ship.pilots.map((pilot) => ({
         xws: `pilot:${pilot.xws}`,
         name: pilot.name,
@@ -81,7 +89,7 @@ function prepareFactions() {
       return factions.map(({ xws, name, icon }) => ({
         xws: `faction:${xws}`,
         name,
-        icon,
+        icon: factionIconsMap[xws],
       }));
     })
     .flat();
@@ -92,8 +100,6 @@ function preparePilotCardsData() {
 
   const ships = prepareShips();
   const factions = prepareFactions();
-
-  console.log(ships);
 
   return factions.map((faction) => ({
     ...faction,
@@ -115,14 +121,15 @@ function prepareUpgradeCardsData() {
   return files.upgrades.map((file) => {
     const contents = parseJSON(fs.readFileSync(file));
     const upgradeTypeName = contents[0].sides[0].type;
+    const upgradeTypeXws = upgradeTypeName.replace(/\ /g, "-").toLowerCase();
 
     return {
-      xws: `upgradeType:${upgradeTypeName.replace(/\ /g, "-").toLowerCase()}`,
+      xws: `upgradeType:${upgradeTypeXws}`,
       name: upgradeTypeName,
+      icon: upgradesIconsMap[upgradeTypeXws],
       cards: contents.map((card) => ({
         xws: `upgrade:${card.xws}`,
         name: card.name,
-        icon: `xwing-miniatures-font-${card.xws}`,
       })),
     };
   });

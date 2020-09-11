@@ -1,0 +1,102 @@
+{
+  "astromech": {
+    "icon": "astromech",
+    "char": "A",
+    "color": ""
+  },
+  "cannon": {
+    "icon": "cannon",
+    "char": "C",
+    "color": ""
+  },
+  "cargo": {
+    "icon": "cargo",
+    "char": "G",
+    "color": ""
+  },
+  "command": {
+    "icon": "command",
+    "char": "V",
+    "color": ""
+  },
+  "configuration": {
+    "icon": "config",
+    "char": "n",
+    "color": ""
+  },
+  "crew": {
+    "icon": "crew",
+    "char": "W",
+    "color": ""
+  },
+  "force-power": {
+    "icon": "forcepower",
+    "char": "F",
+    "color": ""
+  },
+  "gunner": {
+    "icon": "gunner",
+    "char": "Y",
+    "color": ""
+  },
+  "hardpoint": {
+    "icon": "hardpoint",
+    "char": "H",
+    "color": ""
+  },
+  "illicit": {
+    "icon": "illicit",
+    "char": "I",
+    "color": ""
+  },
+  "missile": {
+    "icon": "missile",
+    "char": "M",
+    "color": ""
+  },
+  "modification": {
+    "icon": "modification",
+    "char": "m",
+    "color": ""
+  },
+  "sensor": {
+    "icon": "sensor",
+    "char": "S",
+    "color": ""
+  },
+  "tactical-relay": {
+    "icon": "tacticalrelay",
+    "char": "Z",
+    "color": ""
+  },
+  "talent": {
+    "icon": "talent",
+    "char": "E",
+    "color": ""
+  },
+  "team": {
+    "icon": "team",
+    "char": "T",
+    "color": ""
+  },
+  "tech": {
+    "icon": "tech",
+    "char": "X",
+    "color": ""
+  },
+  "title": {
+    "icon": "title",
+    "char": "t",
+    "color": ""
+  },
+  "torpedo": {
+    "icon": "torpedo",
+    "char": "P",
+    "color": ""
+  },
+  "turret": {
+    "icon": "turret",
+    "char": "U",
+    "color": ""
+  }
+}

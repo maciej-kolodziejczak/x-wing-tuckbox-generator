@@ -1,6 +1,10 @@
+import "./Select.css";
+
+import { v4 } from "uuid";
 import React, { FC, ChangeEvent } from "react";
 
 interface SelectProps {
+  label: string;
   options: {
     value: string;
     label: string;
@@ -9,18 +13,28 @@ interface SelectProps {
   onChange: (v: string[]) => void;
 }
 
-export const Select: FC<SelectProps> = ({ options, selected, onChange }) => {
+export const Select: FC<SelectProps> = ({
+  options,
+  selected,
+  label,
+  onChange,
+}) => {
   function handleChange(event: ChangeEvent<HTMLSelectElement>) {
     const options = Array.from(event.target.options);
-    console.log(options);
     const value = options
       .filter((option) => option.selected)
       .map((option) => option.value);
+
     onChange(value);
   }
+
+  const inputId = v4();
+
   return (
     <div className="custom-select">
+      <label htmlFor={inputId}>{label}</label>
       <select
+        id={inputId}
         className="custom-select__select"
         value={selected}
         onChange={handleChange}

@@ -15,14 +15,15 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "data": "cd xwing-data2 && npm run ffgscrape && cd .. && node src/scripts/generate.js"
+    "data": "cd src/submodules/xwing-data2 && npm run ffgscrape && cd ../../ && node scripts/generate.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,6 +44,7 @@
     "@types/node": "^12.12.54",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.5",
+    "@types/uuid": "^8.3.0",
     "normalize.css": "^8.0.1",
     "ts-node": "^9.0.0"
   }
