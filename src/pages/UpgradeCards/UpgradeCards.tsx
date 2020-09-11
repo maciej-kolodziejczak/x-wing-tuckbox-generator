@@ -1,14 +1,24 @@
 import React, { FC } from "react";
+
+import { Content } from "../../components/Content/Content";
 import { Container } from "../../components/Container/Container";
-import { Renderer } from "../../components/Renderer/Renderer";
-import { Renderer as RendererNew } from "../../components/Renderer/Renderer2";
+
+import { UpgradeFilters } from "./UpgradeFilters/UpgradeFilters";
+import { UpgradeRenderer } from "./UpgradeRenderer/UpgradeRenderer";
+
+import { UpgradeStateProvider } from "./UpgradeCards.context";
 
 export const UpgradeCards: FC<{}> = () => {
   return (
     <div>
-      <Container>
-        Upgrade Cards <Renderer /> <RendererNew />
-      </Container>
+      <UpgradeStateProvider>
+        <Container>
+          <Content title="Upgrade Cards">
+            <UpgradeRenderer />
+            <UpgradeFilters />
+          </Content>
+        </Container>
+      </UpgradeStateProvider>
     </div>
   );
 };

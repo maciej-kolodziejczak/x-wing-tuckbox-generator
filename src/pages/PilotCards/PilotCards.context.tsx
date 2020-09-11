@@ -2,8 +2,8 @@ import React, { createContext, useContext, useReducer, FC } from "react";
 import {
   reducer,
   initialState,
-  PilotCardsActions,
   PilotCardsState,
+  PilotCardsActions,
 } from "./PilotCards.reducer";
 
 interface PilotsContextType {
