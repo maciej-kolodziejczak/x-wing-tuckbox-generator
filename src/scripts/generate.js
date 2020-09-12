@@ -130,6 +130,7 @@ function prepareUpgradeCardsData() {
       cards: contents.map((card) => ({
         xws: `upgrade:${card.xws}`,
         name: card.name,
+        limited: card.limited,
       })),
     };
   });

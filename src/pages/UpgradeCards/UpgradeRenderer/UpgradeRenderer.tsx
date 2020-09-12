@@ -5,7 +5,8 @@ import { useUpgradeStore } from "../UpgradeCards.context";
 
 import { UpgradeCardsData } from "../../../types/data";
 import upgradeCardsData from "../../../data/upgrades.json";
-import { renderBody } from "../../../lib/renderBody";
+
+import { UpgradesRenderer } from "../../../lib/upgradesRenderer";
 
 const data = upgradeCardsData as UpgradeCardsData;
 
@@ -28,15 +29,15 @@ export const UpgradeRenderer: FC<{}> = () => {
   useEffect(() => {
     if (!container) return;
 
+    container.current!.innerHTML = "";
+
     const scale = 1;
-    const width = scaleMm(state.size.width, scale);
-    const height = scaleMm(state.size.height, scale);
-    const length = scaleMm(state.size.length, scale);
+    const svg = new UpgradesRenderer(state.size, scale, data, state).render(
+      scaleMm(210, 1),
+      scaleMm(297, 1)
+    );
 
-    const svg = renderSvg(scaleMm(297, scale), scaleMm(210, scale));
-    const body = renderBody(width, height, length);
-
-    svg.addTo(container.current!).add(body);
+    svg.addTo(container.current!);
   }, [container, state]);
 
   return <div ref={container}></div>;

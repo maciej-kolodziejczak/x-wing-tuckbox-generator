@@ -42,6 +42,7 @@ export type DataRecordType = {
 };
 
 export type UpgradeCardsData = UpgradeCardType[];
+export type UpgradeType = UpgradeCardType;
 
 export interface UpgradeCardType {
   xws: string;
@@ -57,4 +58,5 @@ export interface UpgradeCardType {
 export interface UpgradeCard {
   xws: string;
   name: string;
+  limited: number;
 }

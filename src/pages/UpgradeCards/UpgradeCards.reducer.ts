@@ -36,7 +36,26 @@ export type UpgradeCardsActions =
 export const initialState: UpgradeCardsState = {
   data: {
     types: ["upgradeType:astromech"],
-    cards: [],
+    cards: [
+      "upgrade:chopper",
+      "upgrade:genius",
+      "upgrade:r2astromech",
+      "upgrade:r2d2",
+      "upgrade:r3astromech",
+      "upgrade:r4astromech",
+      "upgrade:r5astromech",
+      "upgrade:r5d8",
+      "upgrade:r5p8",
+      "upgrade:r5tk",
+      "upgrade:r5x3",
+      "upgrade:r2ha",
+      "upgrade:bb8",
+      "upgrade:bbastromech",
+      "upgrade:m9g8",
+      "upgrade:r2c4",
+      "upgrade:r4pastromech",
+      "upgrade:r4p17",
+    ],
   },
   text: {
     title: "Upgrade Cards",
