@@ -153,27 +153,45 @@ export class UpgradesRenderer extends Renderer {
   protected renderLeftSide() {
     this.renderFaceIcon(25, (element) => {
       element.transform({
-        rotate: -90,
-        origin: [12.5, 12.5],
+        rotate: 90,
+        origin: [0, 0]
       });
       element.translate(
-        -25 / 4,
-        this.length * 1.5 + this.height - this.sideMargin * 4
+        this.length - this.sideMargin + 4,
+        this.length * 1.5 + this.sideMargin
       );
-      element.cy(this.length / 2);
     });
     this.renderFaceHead(14, (element) => {
       element.transform({
-        rotate: 270,
-        origin: [0, 0],
+        rotate: 90,
+        origin: [0, 0]
       });
-      element.translate(this.sideMargin, this.length * 1.5 + this.sideMargin);
+      element.translate(this.length - this.sideMargin, this.length * 1.5 + this.height - this.sideMargin);
     });
   }
 
   protected renderRightSide() {
-    const group = new G();
-    return group;
+    this.renderFaceIcon(25, element => {
+      element.transform({
+        rotate: -90,
+        origin: [0, 0],
+      });
+      element.translate(
+        this.length + this.width + this.sideMargin - 4,
+        this.length * 1.5 + this.height - this.sideMargin
+      )
+    })
+
+    this.renderFaceHead(14, (element) => {
+      element.transform({
+        rotate: -90,
+        origin: [0, 0],
+        translate: [
+          this.length + this.width + this.sideMargin,
+          this.length * 1.5 + this.sideMargin,
+        ]
+      })
+    })
   }
 
   protected renderBackSide() {
@@ -240,11 +258,54 @@ export class UpgradesRenderer extends Renderer {
   }
 
   protected renderTopTuck() {
-    const group = new G();
-    return group;
+    this.renderFaceHead(12, element => {
+      element.transform({
+        scale: [-1, -1],
+        origin: [0, 0]
+      })
+      element.translate(
+        this.length + + this.tuckMargin,
+        this.length * 1.5 - this.tuckMargin
+      );
+    });
+
+    this.renderFaceIcon(20, element => {
+      element.transform({
+        rotate: 180,
+        origin: [0, 0],
+        translate: [
+          this.length + this.width - this.tuckMargin,
+          this.length * 1.5 - this.tuckMargin + 4
+        ]
+      });
+    });
+
+    if (this.length > 65) {
+      this.renderCorner(15, element => {
+        element.transform({
+          scaleX: -1,
+          scaleY: -1
+        })
+        element.translate(
+          this.length + this.tuckMargin / 2 + 18,
+          this.length / 2 + this.tuckMargin + 15
+        );
+      });
+    }
   }
   protected renderBottomTuck() {
-    const group = new G();
-    return group;
+    this.renderFaceHead(12, element => {
+      element.translate(
+        this.length + this.width - this.tuckMargin,
+        this.length * 1.5 + this.height + this.tuckMargin
+      );
+    });
+
+    this.renderFaceIcon(20, element => {
+      element.translate(
+        this.length + this.tuckMargin,
+        this.length * 1.5 + this.height + this.tuckMargin - 4
+      );
+    });
   }
 }

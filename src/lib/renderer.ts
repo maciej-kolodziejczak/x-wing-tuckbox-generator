@@ -16,13 +16,21 @@ export abstract class Renderer {
 
   protected faceMargin = 15;
   protected sideMargin = 10;
+  protected tuckMargin = 12;
+
+  protected headFontSize = 16
+  protected headIconSize = 30;
+  protected sideFontSize = 14;
+  protected sideIconSize = 25;
+  protected tuckFontSize = 12;
+  protected tuckIconSize = 20;
 
   public constructor(size: RendererSize, scale: number) {
     const { width, height, length } = size;
 
-    this.width = this.scaleMm(width, scale);
-    this.height = this.scaleMm(height, scale);
-    this.length = this.scaleMm(length, scale);
+    this.width = Renderer.scaleMm(width, scale);
+    this.height = Renderer.scaleMm(height, scale);
+    this.length = Renderer.scaleMm(length, scale);
     this.scale = scale;
   }
 
@@ -128,15 +136,15 @@ export abstract class Renderer {
   protected abstract renderTopTuck(): void;
   protected abstract renderBottomTuck(): void;
 
-  protected mmToPx(value: number): number {
+  protected static mmToPx(value: number): number {
     return value * 3.779527559;
   }
 
-  protected scalePx(value: number, scale: number): number {
+  protected static scalePx(value: number, scale: number): number {
     return value * scale;
   }
 
-  protected scaleMm(value: number, scale: number) {
+  protected static scaleMm(value: number, scale: number) {
     return this.scalePx(this.mmToPx(value), scale);
   }
 }
