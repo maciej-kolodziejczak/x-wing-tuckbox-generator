@@ -1,4 +1,4 @@
-import { SVG, G, Path } from "@svgdotjs/svg.js";
+import { SVG, Path } from "@svgdotjs/svg.js";
 
 export interface RendererSize {
   width: number;
@@ -46,6 +46,13 @@ export abstract class Renderer {
     this.renderBottomTuck();
 
     return this.svg;
+  }
+
+  public toPDF() {
+    const blob = new Blob([this.svg.node.outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+    const blobURL = URL.createObjectURL(blob);
+
+    window.open(blobURL, '_blank');
   }
 
   private renderCutShape() {

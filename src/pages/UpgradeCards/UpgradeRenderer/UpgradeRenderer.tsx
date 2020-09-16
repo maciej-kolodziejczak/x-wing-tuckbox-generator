@@ -32,10 +32,13 @@ export const UpgradeRenderer: FC<{}> = () => {
     container.current!.innerHTML = "";
 
     const scale = 1;
-    const svg = new UpgradesRenderer(state.size, scale, data, state).render(
+    const renderer = new UpgradesRenderer(state.size, scale, data, state)
+    const svg = renderer.render(
       scaleMm(210, 1),
       scaleMm(297, 1)
     );
+
+    renderer.toPDF();
 
     svg.addTo(container.current!);
   }, [container, state]);
