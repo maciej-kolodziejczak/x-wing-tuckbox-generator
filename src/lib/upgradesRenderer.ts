@@ -37,7 +37,7 @@ export class UpgradesRenderer extends Renderer {
   }
 
   // rendering
-  private renderFaceHead(size = 16, callback?: (element: G) => void) {
+  private renderHeadText(size: number): G {
     const head = new G();
     const title = new Text();
     const subtitle = new Text();
@@ -66,10 +66,10 @@ export class UpgradesRenderer extends Renderer {
 
     this.svg.add(head);
 
-    callback?.(head);
+    return head;
   }
 
-  private renderFaceIcon(size = 30, callback?: (element: Text) => void) {
+  private renderHeadIcon(size: number): Text {
     const icon = new Text();
     const type = this.upgradeTypes[0];
 
@@ -84,10 +84,10 @@ export class UpgradesRenderer extends Renderer {
 
     this.svg.add(icon);
 
-    callback?.(icon);
+    return icon;
   }
 
-  private renderCardNames(size = 10, callback?: (element: G) => void) {
+  private renderCardNames(size: number): G {
     const list = new G();
     const cards = this.upgradeCards;
 
@@ -110,10 +110,10 @@ export class UpgradesRenderer extends Renderer {
 
     this.svg.add(list);
 
-    callback?.(list);
+    return list;
   }
 
-  private renderCardTypeIcon(size = 100, callback?: (element: Text) => void) {
+  private renderCardTypeIcon(size: number): Text {
     const icon = new Text();
     const type = this.upgradeTypes[0];
 
@@ -128,10 +128,10 @@ export class UpgradesRenderer extends Renderer {
 
     this.svg.add(icon);
 
-    callback?.(icon);
+    return icon;
   }
 
-  private renderCorner(size = 30, callback?: (element: Path) => void) {
+  private renderCorner(size: number): Path {
     const path = new Path();
 
     path.plot(
@@ -147,165 +147,198 @@ export class UpgradesRenderer extends Renderer {
 
     this.svg.add(path);
 
-    callback?.(path);
+    return path;
   }
 
-  protected renderLeftSide() {
-    this.renderFaceIcon(25, (element) => {
-      element.transform({
-        rotate: 90,
-        origin: [0, 0]
-      });
-      element.translate(
+  protected renderLeftSide(): void {
+    const icon = this.renderHeadIcon(this.sideIconSize);
+    const head = this.renderHeadText(this.sideFontSize);
+
+    icon.transform({
+      rotate: 90,
+      origin: [0, 0],
+      translate: [
         this.length - this.sideMargin + 4,
-        this.length * 1.5 + this.sideMargin
-      );
+        this.length * 1.5 + this.sideMargin,
+      ],
     });
-    this.renderFaceHead(14, (element) => {
-      element.transform({
-        rotate: 90,
-        origin: [0, 0]
-      });
-      element.translate(this.length - this.sideMargin, this.length * 1.5 + this.height - this.sideMargin);
+
+    head.transform({
+      rotate: 90,
+      origin: [0, 0],
+      translate: [
+        this.length - this.sideMargin,
+        this.length * 1.5 + this.height - this.sideMargin,
+      ],
     });
   }
 
-  protected renderRightSide() {
-    this.renderFaceIcon(25, element => {
-      element.transform({
-        rotate: -90,
-        origin: [0, 0],
-      });
-      element.translate(
+  protected renderRightSide(): void {
+    const icon = this.renderHeadIcon(this.sideIconSize);
+    const head = this.renderHeadText(this.sideFontSize);
+
+    icon.transform({
+      rotate: -90,
+      origin: [0, 0],
+      translate: [
         this.length + this.width + this.sideMargin - 4,
-        this.length * 1.5 + this.height - this.sideMargin
-      )
-    })
+        this.length * 1.5 + this.height - this.sideMargin,
+      ],
+    });
 
-    this.renderFaceHead(14, (element) => {
-      element.transform({
-        rotate: -90,
-        origin: [0, 0],
-        translate: [
-          this.length + this.width + this.sideMargin,
-          this.length * 1.5 + this.sideMargin,
-        ]
-      })
-    })
+    head.transform({
+      rotate: -90,
+      origin: [0, 0],
+      translate: [
+        this.length + this.width + this.sideMargin,
+        this.length * 1.5 + this.sideMargin,
+      ],
+    });
   }
 
-  protected renderBackSide() {
-    this.renderFaceHead(16, (element) => {
-      element.translate(
+  protected renderBackSide(): void {
+    const icon = this.renderHeadIcon(this.headIconSize);
+    const head = this.renderHeadText(this.headFontSize);
+    const corner = this.renderCorner(30);
+    const cardIcon = this.renderCardTypeIcon(100);
+
+    icon.transform({
+      translate: [
+        this.length + this.faceMargin,
+        this.length * 1.5 + this.faceMargin / 2,
+      ],
+    });
+
+    head.transform({
+      translate: [
         this.width + this.length - this.faceMargin,
-        this.length * 1.5 + this.faceMargin
-      );
+        this.length * 1.5 + this.faceMargin,
+      ],
     });
-    this.renderFaceIcon(30, (element) => {
-      element.translate(
-        this.length + this.faceMargin,
-        this.length * 1.5 + this.faceMargin / 2
-      );
-    });
-    this.renderCardTypeIcon(100, (element) => {
-      element.translate(
-        this.length + this.faceMargin,
-        this.length * 1.5 + this.height - this.faceMargin * 2.5
-      );
-    });
-    this.renderCorner(30, (element) => {
-      element.translate(
+
+    corner.transform({
+      translate: [
         this.length + this.width - this.faceMargin,
-        this.length * 1.5 + this.height - this.faceMargin
-      );
+        this.length * 1.5 + this.height - this.faceMargin,
+      ],
+    });
+
+    cardIcon.transform({
+      translate: [
+        this.length + this.faceMargin,
+        this.length * 1.5 + this.height - this.faceMargin * 2.5,
+      ],
     });
 
     if (this.state.config.cardNames) {
-      this.renderCardNames(10, (element) => {
-        element.translate(
+      const cardNames = this.renderCardNames(10);
+
+      cardNames.transform({
+        translate: [
           this.length + this.width - this.faceMargin,
-          this.length * 1.5 + 65
-        );
+          this.length * 1.5 + 65,
+        ],
       });
     }
   }
 
-  protected renderFrontSide() {
-    this.renderFaceHead(16, (element) => {
-      element.translate(
-        this.length * 2 + this.width * 2 - this.faceMargin,
-        this.length * 1.5 + this.faceMargin * 2
-      );
-    });
-    this.renderFaceIcon(30, (element) => {
-      element.translate(
+  protected renderFrontSide(): void {
+    const icon = this.renderHeadIcon(this.headIconSize);
+    const head = this.renderHeadText(this.headFontSize);
+    const corner = this.renderCorner(30);
+    const cardIcon = this.renderCardTypeIcon(140);
+
+    icon.transform({
+      translate: [
         this.length * 2 + this.width + this.faceMargin * 1.5,
-        this.length * 1.5 + this.faceMargin * 1.5
-      );
+        this.length * 1.5 + this.faceMargin * 1.5,
+      ],
     });
-    this.renderCardTypeIcon(140, (element) => {
-      element.translate(
-        this.length * 2 + this.width + this.faceMargin,
-        this.length * 1.5 + this.height - this.faceMargin * 3
-      );
-    });
-    this.renderCorner(30, (element) => {
-      element.translate(
+
+    head.transform({
+      translate: [
         this.length * 2 + this.width * 2 - this.faceMargin,
-        this.length * 1.5 + this.height - this.faceMargin
-      );
+        this.length * 1.5 + this.faceMargin * 2,
+      ],
+    });
+
+    corner.transform({
+      translate: [
+        this.length * 2 + this.width * 2 - this.faceMargin,
+        this.length * 1.5 + this.height - this.faceMargin,
+      ],
+    });
+
+    cardIcon.transform({
+      translate: [
+        this.length * 2 + this.width + this.faceMargin,
+        this.length * 1.5 + this.height - this.faceMargin * 3,
+      ],
     });
   }
 
-  protected renderTopTuck() {
-    this.renderFaceHead(12, element => {
-      element.transform({
-        scale: [-1, -1],
-        origin: [0, 0]
-      })
-      element.translate(
-        this.length + + this.tuckMargin,
-        this.length * 1.5 - this.tuckMargin
-      );
+  protected renderTopTuck(): void {
+    const icon = this.renderHeadIcon(this.tuckIconSize);
+    const head = this.renderHeadText(this.tuckFontSize);
+
+    icon.transform({
+      rotate: 180,
+      origin: [0, 0],
+      translate: [
+        this.length + this.width - this.tuckMargin,
+        this.length * 1.5 - this.tuckMargin + 4,
+      ],
     });
 
-    this.renderFaceIcon(20, element => {
-      element.transform({
-        rotate: 180,
-        origin: [0, 0],
-        translate: [
-          this.length + this.width - this.tuckMargin,
-          this.length * 1.5 - this.tuckMargin + 4
-        ]
-      });
+    head.transform({
+      scale: [-1, -1],
+      origin: [0, 0],
+      translate: [
+        this.length + +this.tuckMargin,
+        this.length * 1.5 - this.tuckMargin,
+      ],
     });
 
     if (this.length > 65) {
-      this.renderCorner(15, element => {
-        element.transform({
-          scaleX: -1,
-          scaleY: -1
-        })
-        element.translate(
+      const corner = this.renderCorner(15);
+
+      corner.transform({
+        scale: [-1, -1],
+        translate: [
           this.length + this.tuckMargin / 2 + 18,
-          this.length / 2 + this.tuckMargin + 15
-        );
+          this.length / 2 + this.tuckMargin + 15,
+        ],
       });
     }
   }
-  protected renderBottomTuck() {
-    this.renderFaceHead(12, element => {
-      element.translate(
-        this.length + this.width - this.tuckMargin,
-        this.length * 1.5 + this.height + this.tuckMargin
-      );
+
+  protected renderBottomTuck(): void {
+    const icon = this.renderHeadIcon(this.tuckIconSize);
+    const head = this.renderHeadText(this.tuckFontSize);
+
+    icon.transform({
+      translate: [
+        this.length + this.tuckMargin,
+        this.length * 1.5 + this.height + this.tuckMargin - 4,
+      ],
     });
 
-    this.renderFaceIcon(20, element => {
-      element.translate(
-        this.length + this.tuckMargin,
-        this.length * 1.5 + this.height + this.tuckMargin - 4
-      );
+    head.transform({
+      translate: [
+        this.length + this.width - this.tuckMargin,
+        this.length * 1.5 + this.height + this.tuckMargin,
+      ],
     });
+
+    if (this.length > 65) {
+      const corner = this.renderCorner(15);
+
+      corner.transform({
+        translate: [
+          this.length + this.width - this.tuckMargin,
+          this.length * 1.5 + this.height + this.length - this.tuckMargin,
+        ],
+      });
+    }
   }
 }

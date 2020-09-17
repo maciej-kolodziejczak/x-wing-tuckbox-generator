@@ -1,5 +1,5 @@
 import { SVG, Path } from "@svgdotjs/svg.js";
-import fonts from '../data/fonts.json';
+import fonts from "../data/fonts.json";
 
 export interface RendererSize {
   width: number;
@@ -19,7 +19,7 @@ export abstract class Renderer {
   protected sideMargin = 10;
   protected tuckMargin = 12;
 
-  protected headFontSize = 16
+  protected headFontSize = 16;
   protected headIconSize = 30;
   protected sideFontSize = 14;
   protected sideIconSize = 25;
@@ -38,14 +38,13 @@ export abstract class Renderer {
   public render(width: number, height: number) {
     // typings are not complete, fontface method does exist
     // @ts-ignore
-    this.svg.fontface('XWing', fonts.XWing);
+    this.svg.fontface("XWing", fonts.XWing);
     // @ts-ignore
-    this.svg.fontface('XWingShips', fonts.XWingShips);
+    this.svg.fontface("XWingShips", fonts.XWingShips);
     // @ts-ignore
-    this.svg.fontface('BankGothic Md BT', fonts.BankGothicMdBT)
-
-
+    this.svg.fontface("BankGothic Md BT", fonts.BankGothicMdBT);
     this.svg.width(width).height(height);
+
     this.renderCutShape();
     this.renderFoldshape();
     this.renderLeftSide();
@@ -59,10 +58,12 @@ export abstract class Renderer {
   }
 
   public toPDF() {
-    const blob = new Blob([this.svg.node.outerHTML], { type: 'image/svg+xml;charset=utf-8' });
+    const blob = new Blob([this.svg.node.outerHTML], {
+      type: "image/svg+xml;charset=utf-8",
+    });
     const blobURL = URL.createObjectURL(blob);
 
-    window.open(blobURL, '_blank');
+    window.open(blobURL, "_blank");
   }
 
   private renderCutShape() {
