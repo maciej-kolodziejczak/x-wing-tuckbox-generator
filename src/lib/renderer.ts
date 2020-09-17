@@ -1,4 +1,5 @@
 import { SVG, Path } from "@svgdotjs/svg.js";
+import fonts from '../data/fonts.json';
 
 export interface RendererSize {
   width: number;
@@ -35,6 +36,15 @@ export abstract class Renderer {
   }
 
   public render(width: number, height: number) {
+    // typings are not complete, fontface method does exist
+    // @ts-ignore
+    this.svg.fontface('XWing', fonts.XWing);
+    // @ts-ignore
+    this.svg.fontface('XWingShips', fonts.XWingShips);
+    // @ts-ignore
+    this.svg.fontface('BankGothic Md BT', fonts.BankGothicMdBT)
+
+
     this.svg.width(width).height(height);
     this.renderCutShape();
     this.renderFoldshape();
