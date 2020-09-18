@@ -57,13 +57,23 @@ export abstract class Renderer {
     return this.svg;
   }
 
-  public toPDF() {
-    const blob = new Blob([this.svg.node.outerHTML], {
-      type: "image/svg+xml;charset=utf-8",
-    });
-    const blobURL = URL.createObjectURL(blob);
+  public async toPDF() {
+    // const blob = new Blob([this.svg.node.outerHTML], {
+    //   type: "image/svg+xml;charset=utf-8",
+    // });
+    // const blobURL = URL.createObjectURL(blob);
 
-    window.open(blobURL, "_blank");
+    // window.open(blobURL, "_blank");
+    const body = this.svg.node.outerHTML;
+
+    const res = await fetch("http://localhost:8080/pdf", {
+      method: "post",
+      body,
+    });
+    const data = await res.blob();
+    const url = URL.createObjectURL(data);
+
+    window.open(url, "_blank");
   }
 
   private renderCutShape() {
