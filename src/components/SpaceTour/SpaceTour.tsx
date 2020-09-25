@@ -49,7 +49,7 @@ export const SpaceTour: FC<{}> = function () {
       return out;
     };
 
-    let stars = makeStars(10000);
+    let stars = makeStars(2000);
 
     const clear = () => {
       ctx!.fillStyle = "black";

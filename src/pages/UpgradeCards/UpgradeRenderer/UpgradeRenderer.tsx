@@ -1,5 +1,4 @@
 import React, { FC, useRef, useEffect } from "react";
-import { SVG, Svg } from "@svgdotjs/svg.js";
 
 import { useUpgradeStore } from "../UpgradeCards.context";
 
@@ -10,38 +9,28 @@ import { UpgradesRenderer } from "../../../lib/upgradesRenderer";
 
 const data = upgradeCardsData as UpgradeCardsData;
 
-export function mmToPx(v: number): number {
-  return v * 3.779527559;
-}
-
-export function scaleMm(v: number, s: number): number {
-  return mmToPx(v) * s;
-}
-
-function renderSvg(width: number, height: number): Svg {
-  return SVG().width(width).height(height);
-}
-
 export const UpgradeRenderer: FC<{}> = () => {
   const container = useRef<HTMLDivElement>(null);
   const { state } = useUpgradeStore();
+
+  const scale = 1;
+  let renderer = useRef<UpgradesRenderer>();
 
   useEffect(() => {
     if (!container) return;
 
     container.current!.innerHTML = "";
+    renderer.current = new UpgradesRenderer(state.size, scale, data, state);
 
-    const scale = 1;
-    const renderer = new UpgradesRenderer(state.size, scale, data, state)
-    const svg = renderer.render(
-      scaleMm(210, 1),
-      scaleMm(297, 1)
-    );
-
-    renderer.toPDF();
-
-    svg.addTo(container.current!);
+    const width = state.size.width * 2 + state.size.length * 3;
+    const height = state.size.height + state.size.length * 2.5;
+    renderer.current.render(width, height).addTo(container.current!);
   }, [container, state]);
 
-  return <div ref={container}></div>;
+  return (
+    <div>
+      <div ref={container}></div>
+      <button onClick={() => renderer.current!.toPDF()}>Download</button>
+    </div>
+  );
 };

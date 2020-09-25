@@ -1,4 +1,4 @@
-import { SVG, Path } from "@svgdotjs/svg.js";
+import { SVG, Path, Svg } from "@svgdotjs/svg.js";
 import fonts from "../data/fonts.json";
 
 export interface RendererSize {
@@ -8,7 +8,11 @@ export interface RendererSize {
 }
 
 export abstract class Renderer {
+  private strokeWidth = 1;
+  private fingerArc = 20;
+
   protected svg = SVG();
+  protected print: Svg | null = null;
 
   protected width: number;
   protected height: number;
@@ -43,7 +47,6 @@ export abstract class Renderer {
     this.svg.fontface("XWingShips", fonts.XWingShips);
     // @ts-ignore
     this.svg.fontface("BankGothic Md BT", fonts.BankGothicMdBT);
-    this.svg.width(width).height(height);
 
     this.renderCutShape();
     this.renderFoldshape();
@@ -54,17 +57,20 @@ export abstract class Renderer {
     this.renderTopTuck();
     this.renderBottomTuck();
 
+    this.print = this.svg.clone();
+
+    this.svg.viewbox(
+      -20,
+      -20,
+      Renderer.scaleMm(width, this.scale) + 20,
+      Renderer.scaleMm(height, this.scale) + 20
+    );
+
     return this.svg;
   }
 
   public async toPDF() {
-    // const blob = new Blob([this.svg.node.outerHTML], {
-    //   type: "image/svg+xml;charset=utf-8",
-    // });
-    // const blobURL = URL.createObjectURL(blob);
-
-    // window.open(blobURL, "_blank");
-    const body = this.svg.node.outerHTML;
+    const body = this.print!.node.outerHTML;
 
     const res = await fetch("http://localhost:8080/pdf", {
       method: "post",
@@ -94,7 +100,14 @@ export abstract class Renderer {
          m 0 -${l / 1.5}
          h ${l / 3}
          a ${l / 1.5} ${l / 1.5} 0 0 1 ${l / 1.5} ${l / 1.5}
-         h ${w}
+         h ${w / 2 - this.fingerArc}
+         a ${this.fingerArc} ${this.fingerArc} 0 0 0 ${this.fingerArc} ${
+          this.fingerArc
+        }
+         a ${this.fingerArc} ${this.fingerArc} 0 0 0 ${this.fingerArc} -${
+          this.fingerArc
+        }
+         h ${w / 2 - this.fingerArc}
          l ${l * 0.9} ${l / 6}
          v ${h - l / 3}
          l ${-l * 0.9} ${l / 6}
@@ -114,7 +127,7 @@ export abstract class Renderer {
       )
       .fill("#fff")
       .stroke({
-        width: 1,
+        width: this.strokeWidth,
         color: "#aaa",
       });
 
@@ -149,7 +162,7 @@ export abstract class Renderer {
       )
       .fill("rgba(0,0,0,0)")
       .stroke({
-        width: 1,
+        width: this.strokeWidth,
         color: "#aaa",
         dasharray: "4",
       });

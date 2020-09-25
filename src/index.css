@@ -12,3 +12,17 @@ body {
 #root {
   height: 100%;
 }
+
+.card-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.renderer {
+  flex: 1 1 50%;
+  padding-left: 40px;
+}
+
+.filters {
+  flex: 0 1 50%;
+}

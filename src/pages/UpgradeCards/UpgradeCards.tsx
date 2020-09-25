@@ -14,8 +14,14 @@ export const UpgradeCards: FC<{}> = () => {
       <UpgradeStateProvider>
         <Container>
           <Content title="Upgrade Cards">
-            <UpgradeRenderer />
-            <UpgradeFilters />
+            <div className="card-content">
+              <div className="filters">
+                <UpgradeFilters />
+              </div>
+              <div className="renderer">
+                <UpgradeRenderer />
+              </div>
+            </div>
           </Content>
         </Container>
       </UpgradeStateProvider>
