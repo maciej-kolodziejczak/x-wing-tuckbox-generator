@@ -41,7 +41,9 @@ export const Select: FC<SelectProps> = ({
         multiple
       >
         {options.map(({ value, label }) => (
-          <option value={value}>{label}</option>
+          <option value={value} key={value}>
+            {label}
+          </option>
         ))}
       </select>
       <div className="custom-select__"></div>
