@@ -44,6 +44,11 @@
     "char": "H",
     "color": ""
   },
+  "device": {
+    "icon": "device",
+    "char": "B",
+    "color": ""
+  },
   "illicit": {
     "icon": "illicit",
     "char": "I",
