@@ -40,6 +40,7 @@ export abstract class Renderer {
   }
 
   public render(width: number, height: number) {
+    // @todo as fonts are imported into project anyways for server side font resolving when creating pdf file, they can be just set as @font-face rules in css to render properly on page
     // typings are not complete, fontface method does exist
     // @ts-ignore
     this.svg.fontface("XWing", fonts.XWing);
@@ -187,5 +188,24 @@ export abstract class Renderer {
 
   protected static scaleMm(value: number, scale: number) {
     return this.scalePx(this.mmToPx(value), scale);
+  }
+
+  protected static breakText(text: string): string[] {
+    let middle = Math.floor(text.length / 2);
+    const minLength = 30; // @todo make it dependent on width
+    const before = text.lastIndexOf(" ", middle);
+    const after = text.indexOf(" ", middle + 1);
+
+    if (text.length < minLength) {
+      return [text];
+    }
+
+    if (middle - before < after - middle) {
+      middle = before;
+    } else {
+      middle = after;
+    }
+
+    return [text.substr(0, middle), text.substr(middle + 1)];
   }
 }
