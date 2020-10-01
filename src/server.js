@@ -39,7 +39,7 @@ app.post("/pdf", function (req, res) {
       .writeHead(200, {
         "Content-Length": Buffer.byteLength(data),
         "Content-Type": "application/pdf",
-        "Content-disposition": "attachment;filename=test.pdf",
+        "Content-disposition": "attachment;filename=tuckbox.pdf",
       })
       .end(data);
   });
