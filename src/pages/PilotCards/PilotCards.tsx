@@ -14,8 +14,14 @@ export const PilotCards: FC<{}> = () => {
       <PilotStateProvider>
         <Container>
           <Content title="Pilot Cards">
-            <PilotRenderer />
-            <PilotFilters />
+            <div className="card-content">
+              <div className="filters">
+                <PilotFilters />
+              </div>
+              <div className="renderer">
+                <PilotRenderer />
+              </div>
+            </div>
           </Content>
         </Container>
       </PilotStateProvider>
