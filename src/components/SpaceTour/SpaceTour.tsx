@@ -19,11 +19,6 @@ export const SpaceTour: FC<{}> = function () {
       w = document.body.clientWidth;
       h = document.body.clientHeight;
 
-      console.log("body size", {
-        w: document.body.offsetWidth,
-        h: document.body.offsetHeight,
-      });
-
       canvas!.width = w;
       canvas!.height = h;
     };
