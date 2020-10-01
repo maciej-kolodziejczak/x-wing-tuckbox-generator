@@ -190,9 +190,9 @@ export abstract class Renderer {
     return this.scalePx(this.mmToPx(value), scale);
   }
 
-  protected static breakText(text: string): string[] {
+  protected static breakText(text: string, width: number): string[] {
     let middle = Math.floor(text.length / 2);
-    const minLength = 30; // @todo make it dependent on width
+    const minLength = width / 9;
     const before = text.lastIndexOf(" ", middle);
     const after = text.indexOf(" ", middle + 1);
 
